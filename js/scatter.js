@@ -4,6 +4,7 @@ import { getTerrainHeight } from './terrainHeight.js';
 import { isOnRoad } from './roads.js';
 import { buildInstancedFromPrefabs } from './instanceUtils.js';
 import { QUALITY } from './qualitySettings.js';
+import { decimateObject } from './decimate.js';
 
 // ================== GRASS + FLOWER SCATTER ==================
 // Scatters tufts of game_ready_grass.glb and, more sparsely, the red/pink
@@ -42,6 +43,7 @@ function loadGLB(loader, fullPath) {
 
 // Normalizes a model to a target height, centered and resting on the ground
 function makePrefab(scene, targetH) {
+  decimateObject(scene, 'scatter');
   scene.traverse(o => { if (o.isMesh) { o.castShadow = QUALITY.vegetationShadows; o.receiveShadow = true; } });
   const box = new THREE.Box3().setFromObject(scene);
   const size = box.getSize(new THREE.Vector3());
@@ -164,6 +166,8 @@ export async function scatterVegetation(scene, options = {}) {
     }
   }
 
-  scene.add(buildInstancedFromPrefabs(allPrefabs, placements));
-  return count;
+  const _scatterGroup = buildInstancedFromPrefabs(allPrefabs, placements);
+  scene.add(_scatterGroup);
+  _scatterGroup.userData.scatterCount = count;
+  return _scatterGroup;
 }

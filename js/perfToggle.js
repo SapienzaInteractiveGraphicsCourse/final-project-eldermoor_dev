@@ -5,6 +5,7 @@
 //   L - shadows on/off (renderer.shadowMap.enabled)
 //   K - force pixelRatio 1 (tests fill-rate / resolution cost)
 //   J - hide the pond entirely (tests the whole pond cost)
+//   G - hide the grass/flower scatter (tests the 7000+ instance cost)
 //
 // A big FPS jump when toggling one of these = that's your bottleneck.
 // This is a TEMPORARY diagnostic helper; remove it once you've decided.
@@ -18,19 +19,20 @@ export function createPerfToggles(renderer, scene, getRefs) {
     border-radius:8px; border:1px solid #5a4a2a; white-space:pre; pointer-events:none;`;
   document.body.appendChild(banner);
 
-  const state = { cheapWater: false, shadows: true, lowRes: false, hidePond: false };
+  const state = { cheapWater: false, shadows: true, lowRes: false, hidePond: false, hideScatter: false };
 
   function refresh() {
     banner.textContent =
       `[T] cheap water: ${state.cheapWater ? 'ON' : 'off'}\n` +
       `[L] shadows:     ${state.shadows ? 'ON' : 'off'}\n` +
       `[K] pixelRatio1: ${state.lowRes ? 'ON' : 'off'}\n` +
-      `[J] hide pond:   ${state.hidePond ? 'ON' : 'off'}`;
+      `[J] hide pond:   ${state.hidePond ? 'ON' : 'off'}\n` +
+      `[G] hide grass:  ${state.hideScatter ? 'ON' : 'off'}`;
   }
   refresh();
 
   window.addEventListener('keydown', (e) => {
-    const { pond } = getRefs ? getRefs() : {};
+    const { pond, scatter } = getRefs ? getRefs() : {};
     if (e.code === 'KeyT') {
       state.cheapWater = !state.cheapWater;
       if (pond && pond.userData.setCheapWater) pond.userData.setCheapWater(state.cheapWater);
@@ -51,6 +53,10 @@ export function createPerfToggles(renderer, scene, getRefs) {
     } else if (e.code === 'KeyJ') {
       state.hidePond = !state.hidePond;
       if (pond) pond.visible = !state.hidePond;
+      refresh();
+    } else if (e.code === 'KeyG') {
+      state.hideScatter = !state.hideScatter;
+      if (scatter) scatter.visible = !state.hideScatter;
       refresh();
     }
   });

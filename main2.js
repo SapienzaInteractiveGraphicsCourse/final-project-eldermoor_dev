@@ -67,7 +67,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 const perf = createPerfHUD(renderer, scene);
 // DEBUG: runtime toggles to find the bottleneck (keys T/L/K/J). Reads `laghetto`
 // lazily so it works even though the pond is created later during loadData.
-createPerfToggles(renderer, scene, () => ({ pond: laghetto }));
+createPerfToggles(renderer, scene, () => ({ pond: laghetto, scatter: scatterGroup }));
 
 // Procedural environment (no external HDRI files): gives the PBR materials
 // something to reflect. This is what makes the lake water's reflections
@@ -110,6 +110,7 @@ let npcManager = null;
 let questSystem = null;
 let dialogue = null;
 let erbe = null;
+let scatterGroup = null;   // grass/flower scatter, for the diagnostic toggle
 let hud = null;
 let inventory = null;
 let sceneReady = false;   // true once loadData finishes; loop skips work until then
@@ -363,7 +364,7 @@ async function loadData() {
 
       // Grass and bushes denser on the grass of the NORTH-EAST quadrant
       // (windmill and lake area). Avoids roads, paving, walls and the areas below
-      await scatterVegetation(scene, {
+      scatterGroup = await scatterVegetation(scene, {
         grassSpacing: 4.5,   // denser
         flowerChance: 0.22,  // more bushes/flowers
         avoidRects: [
