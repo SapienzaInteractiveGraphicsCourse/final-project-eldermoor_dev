@@ -3,8 +3,6 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 import { detectQuality, QUALITY, shadowMapTypeFor } from './js/qualitySettings.js';
-import { createPerfHUD } from './js/perfHud.js';
-import { createPerfToggles } from './js/perfToggle.js';
 import { setupLights }      from './js/lights.js';
 import { createLampPosts }  from './js/lampPosts.js';
 import { createGround }     from './js/ground.js';
@@ -63,12 +61,6 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = QUALITY.toneMappingExposure;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-// Performance overlay (toggle with the 'P' key): FPS, draw calls, triangles.
-const perf = createPerfHUD(renderer, scene);
-// DEBUG: runtime toggles to find the bottleneck (keys T/L/K/J). Reads `laghetto`
-// lazily so it works even though the pond is created later during loadData.
-createPerfToggles(renderer, scene, () => ({ pond: laghetto, scatter: scatterGroup }));
-
 // Procedural environment (no external HDRI files): gives the PBR materials
 // something to reflect. This is what makes the lake water's reflections
 // "light up" (clearcoat + envMapIntensity in the pond material).
@@ -110,7 +102,6 @@ let npcManager = null;
 let questSystem = null;
 let dialogue = null;
 let erbe = null;
-let scatterGroup = null;
 let hud = null;
 let inventory = null;
 let sceneReady = false;   // true once loadData finishes; loop skips work until then
@@ -364,7 +355,7 @@ async function loadData() {
 
       // Grass and bushes denser on the grass of the NORTH-EAST quadrant
       // (windmill and lake area). Avoids roads, paving, walls and the areas below
-      scatterGroup = await scatterVegetation(scene, {
+      await scatterVegetation(scene, {
         grassSpacing: 4.5,   // denser
         flowerChance: 0.22,  // more bushes/flowers
         avoidRects: [
@@ -470,7 +461,6 @@ function animate(now) {
   if (inventory) inventory.update();
 
   renderer.render(scene, camera);
-  perf.update();
 }
 
 animate(0);

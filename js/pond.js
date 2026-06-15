@@ -264,24 +264,6 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   water.receiveShadow = true;
   group.add(water);
 
-  // --- DEBUG: expose a quick toggle for the costly transmission/clearcoat,
-  // so we can measure its FPS impact at runtime (see perfToggle.js, key 'T').
-  group.userData.setCheapWater = function (cheap) {
-    if (cheap) {
-      waterMat.transmission = 0.0;
-      waterMat.clearcoat = 0.0;
-      waterMat.roughness = 0.25;
-      waterMat.opacity = 0.85;
-    } else {
-      waterMat.transmission = 0.5;
-      waterMat.clearcoat = 1.0;
-      waterMat.roughness = 0.04;
-      waterMat.opacity = 0.9;
-    }
-    waterMat.needsUpdate = true;
-  };
-  group.userData.waterMat = waterMat;
-
   // array for the sway animation (filled by grass and bushes)
   const grasses = [];
 
@@ -327,8 +309,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
 
   // === ANIMATION: waves + swaying grass ===
   // The wave update (and especially computeVertexNormals) is the heaviest part,
-  // so on weaker GPUs we run it only every N frames. We keep a private frame
-  // counter so the loop signature stays unchanged.
+  // so on weaker GPUs we run it only every N frames
   let _pondFrame = 0;
   group.userData.update = function (time) {
     _pondFrame++;
