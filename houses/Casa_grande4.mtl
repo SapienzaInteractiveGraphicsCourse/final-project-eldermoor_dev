@@ -1,0 +1,30 @@
+﻿newmtl T_WoodTrim_BaseColor_Mat2
+	map_Kd T_WoodTrim_BaseColor_Mat2_D.bmp
+	map_Ks T_WoodTrim_BaseColor_Mat2_S.bmp
+	bump T_WoodTrim_BaseColor_Mat2_N.bmp
+
+newmtl T_Plaster_BaseColor_Mat1
+	map_Kd T_Plaster_BaseColor_Mat1_D.bmp
+	map_Ks T_Plaster_BaseColor_Mat1_S.bmp
+	bump T_Plaster_BaseColor_Mat1_N.bmp
+
+newmtl MI_WindowGlass
+	map_Kd MI_WindowGlass_D.bmp
+	map_Ks MI_WindowGlass_S.bmp
+	bump MI_WindowGlass_N.bmp
+
+newmtl T_WoodTrim_BaseColor_Mat4
+	map_Kd T_WoodTrim_BaseColor_Mat4_D.bmp
+	map_Ks T_WoodTrim_BaseColor_Mat4_S.bmp
+	bump T_WoodTrim_BaseColor_Mat4_N.bmp
+
+newmtl T_RoundTiles_Normal_Mat1
+	map_Kd T_RoundTiles_Normal_Mat1_D.bmp
+	map_Ks T_RoundTiles_Normal_Mat1_S.bmp
+	bump T_RoundTiles_Normal_Mat1_N.bmp
+
+newmtl T_MetalOrnaments_BaseColor_Mat
+	map_Kd T_MetalOrnaments_BaseColor_Mat_D.bmp
+	map_Ks T_MetalOrnaments_BaseColor_Mat_S.bmp
+	bump T_MetalOrnaments_BaseColor_Mat_N.bmp
+

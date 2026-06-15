@@ -1,0 +1,2132 @@
+{
+  "buildings": [
+    {
+      "id": "casa_grande_01",
+      "name": "Casa Grande 1",
+      "type": "building",
+      "mapPosition": {
+        "x": 7,
+        "z": 7
+      },
+      "world": {
+        "rotation": 1.3
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_grande_01_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande.obj",
+          "material": "/houses/Casa_grande.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_alta_05",
+      "name": "Casa Alta 5",
+      "type": "building",
+      "mapPosition": {
+        "x": 15,
+        "z": 11
+      },
+      "world": {
+        "rotation": 1.1
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_alta_05_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta2.obj",
+          "material": "/houses/Casa_alta2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_01",
+      "name": "Casa Piccola 1 – South road left",
+      "type": "building",
+      "mapPosition": {
+        "x": 23,
+        "z": 25
+      },
+      "world": {
+        "rotation": 0.0
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_01_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola.obj",
+          "material": "/houses/Casa_piccola.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_02",
+      "name": "Casa Piccola 2 – South road right",
+      "type": "building",
+      "mapPosition": {
+        "x": -48,
+        "z": 22
+      },
+      "world": {
+        "rotation": 3.14
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_02_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola2.obj",
+          "material": "/houses/Casa_piccola2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_grande_02",
+      "name": "Casa Grande 2 – South road left far",
+      "type": "building",
+      "mapPosition": {
+        "x": 26,
+        "z": 43
+      },
+      "world": {
+        "rotation": 0.9
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_grande_02_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande2.obj",
+          "material": "/houses/Casa_grande2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_grande_04",
+      "name": "Casa Grande 4 – South road right far",
+      "type": "building",
+      "mapPosition": {
+        "x": 7,
+        "z": 55
+      },
+      "world": {
+        "rotation": 6.3
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_grande_04_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande4.obj",
+          "material": "/houses/Casa_grande4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_grande_05",
+      "name": "Casa Grande 5 – South road right far",
+      "type": "building",
+      "mapPosition": {
+        "x": 7,
+        "z": 65
+      },
+      "world": {
+        "rotation": 6.3
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_grande_05_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande.obj",
+          "material": "/houses/Casa_grande.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_alta_04",
+      "name": "Casa Alta 4",
+      "type": "building",
+      "mapPosition": {
+        "x": 15,
+        "z": 64
+      },
+      "world": {
+        "rotation": 8
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_alta_04_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta.obj",
+          "material": "/houses/Casa_alta.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_alta_06",
+      "name": "Casa Alta 6",
+      "type": "building",
+      "mapPosition": {
+        "x": 17,
+        "z": 55
+      },
+      "world": {
+        "rotation": 10.2
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_alta_06_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta3.obj",
+          "material": "/houses/Casa_alta3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_alta_07",
+      "name": "Casa Alta 7",
+      "type": "building",
+      "mapPosition": {
+        "x": -24,
+        "z": 60
+      },
+      "world": {
+        "rotation": 37.1
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_alta_07_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta.obj",
+          "material": "/houses/Casa_alta.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_grande_08",
+      "name": "Casa Grande 8",
+      "type": "building",
+      "mapPosition": {
+        "x": -15,
+        "z": 53
+      },
+      "world": {
+        "rotation": 37.1
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_grande_08_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande3.obj",
+          "material": "/houses/Casa_grande3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_07",
+      "name": "Casa Piccola 7",
+      "type": "building",
+      "mapPosition": {
+        "x": 23,
+        "z": 61
+      },
+      "world": {
+        "rotation": 8.3
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_07_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola3.obj",
+          "material": "/houses/Casa_piccola3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_alta_01",
+      "name": "Casa Alta 1 – West-NW road left",
+      "type": "building",
+      "mapPosition": {
+        "x": -10,
+        "z": -22
+      },
+      "world": {
+        "rotation": 2.5
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_alta_01_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta.obj",
+          "material": "/houses/Casa_alta.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_03",
+      "name": "Casa Piccola 3 – West-NW road right",
+      "type": "building",
+      "mapPosition": {
+        "x": -41,
+        "z": -2
+      },
+      "world": {
+        "rotation": 2.5
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_03_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola3.obj",
+          "material": "/houses/Casa_piccola3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_alta_03",
+      "name": "Casa Alta 3 – NW road",
+      "type": "building",
+      "mapPosition": {
+        "x": -11,
+        "z": 9
+      },
+      "world": {
+        "rotation": 2.0
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_alta_03_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta3.obj",
+          "material": "/houses/Casa_alta3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_alta_02",
+      "name": "Casa Alta 2 – NNE road toward hill",
+      "type": "building",
+      "mapPosition": {
+        "x": -7,
+        "z": 64
+      },
+      "world": {
+        "rotation": 3
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_alta_02_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta2.obj",
+          "material": "/houses/Casa_alta2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_05",
+      "name": "Casa Piccola 5",
+      "type": "building",
+      "mapPosition": {
+        "x": -7,
+        "z": 54
+      },
+      "world": {
+        "rotation": 3
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_05_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola2.obj",
+          "material": "/houses/Casa_piccola2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_grande_03",
+      "name": "Casa Grande 3 – East road",
+      "type": "building",
+      "mapPosition": {
+        "x": -17,
+        "z": 15
+      },
+      "world": {
+        "rotation": 2.5
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_grande_03_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande3.obj",
+          "material": "/houses/Casa_grande3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_06",
+      "name": "Casa Piccola 6",
+      "type": "building",
+      "mapPosition": {
+        "x": -22,
+        "z": 22
+      },
+      "world": {
+        "rotation": 2.5
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_06_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola.obj",
+          "material": "/houses/Casa_piccola.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_04",
+      "name": "Casa Piccola 4 – SE road",
+      "type": "building",
+      "mapPosition": {
+        "x": 20,
+        "z": 18
+      },
+      "world": {
+        "rotation": 0.6
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_04_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola4.obj",
+          "material": "/houses/Casa_piccola4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_08",
+      "name": "Casa Piccola 8",
+      "type": "building",
+      "mapPosition": {
+        "x": -19,
+        "z": 63
+      },
+      "world": {
+        "rotation": 1.1
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_08_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola2.obj",
+          "material": "/houses/Casa_piccola2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_09",
+      "name": "Casa Piccola 9",
+      "type": "building",
+      "mapPosition": {
+        "x": -13,
+        "z": 65
+      },
+      "world": {
+        "rotation": 1.3
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_09_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola3.obj",
+          "material": "/houses/Casa_piccola3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_piccola_10",
+      "name": "Casa Piccola 10",
+      "type": "building",
+      "mapPosition": {
+        "x": -11,
+        "z": 2
+      },
+      "world": {
+        "rotation": -2
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_piccola_10_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola3.obj",
+          "material": "/houses/Casa_piccola3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_grande_6",
+      "name": "Casa Grande 6",
+      "type": "building",
+      "mapPosition": {
+        "x": -18,
+        "z": -1
+      },
+      "world": {
+        "rotation": -2
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_grande_6_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande2.obj",
+          "material": "/houses/Casa_grande2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_alta_8",
+      "name": "Casa Alta 8",
+      "type": "building",
+      "mapPosition": {
+        "x": -33,
+        "z": 21
+      },
+      "world": {
+        "rotation": 6.4
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_alta_8_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta2.obj",
+          "material": "/houses/Casa_alta2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_01",
+      "name": "Casa Nuova 1",
+      "type": "building",
+      "mapPosition": {
+        "x": 12,
+        "z": -6
+      },
+      "world": {
+        "rotation": 0.91
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_01_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta.obj",
+          "material": "/houses/Casa_alta.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_02",
+      "name": "Casa Nuova 2",
+      "type": "building",
+      "mapPosition": {
+        "x": -26,
+        "z": 12
+      },
+      "world": {
+        "rotation": 2.86
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_02_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande2.obj",
+          "material": "/houses/Casa_grande2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_03",
+      "name": "Casa Nuova 3",
+      "type": "building",
+      "mapPosition": {
+        "x": -32,
+        "z": 38
+      },
+      "world": {
+        "rotation": 4.84
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_03_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola2.obj",
+          "material": "/houses/Casa_piccola2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_04",
+      "name": "Casa Nuova 4",
+      "type": "building",
+      "mapPosition": {
+        "x": -42,
+        "z": 40
+      },
+      "world": {
+        "rotation": 4.43
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_04_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta2.obj",
+          "material": "/houses/Casa_alta2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_05",
+      "name": "Casa Nuova 5",
+      "type": "building",
+      "mapPosition": {
+        "x": 38,
+        "z": 44
+      },
+      "world": {
+        "rotation": 4.6
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_05_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande4.obj",
+          "material": "/houses/Casa_grande4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_06",
+      "name": "Casa Nuova 6",
+      "type": "building",
+      "mapPosition": {
+        "x": 36,
+        "z": 10
+      },
+      "world": {
+        "rotation": 2.72
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_06_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola3.obj",
+          "material": "/houses/Casa_piccola3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_07",
+      "name": "Casa Nuova 7",
+      "type": "building",
+      "mapPosition": {
+        "x": 28,
+        "z": -4
+      },
+      "world": {
+        "rotation": 5.02
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_07_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta3.obj",
+          "material": "/houses/Casa_alta3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_08",
+      "name": "Casa Nuova 8",
+      "type": "building",
+      "mapPosition": {
+        "x": 30,
+        "z": 18
+      },
+      "world": {
+        "rotation": 3.35
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_08_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande3.obj",
+          "material": "/houses/Casa_grande3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_09",
+      "name": "Casa Nuova 9",
+      "type": "building",
+      "mapPosition": {
+        "x": 12,
+        "z": -18
+      },
+      "world": {
+        "rotation": 0.5
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_09_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola4.obj",
+          "material": "/houses/Casa_piccola4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_10",
+      "name": "Casa Nuova 10",
+      "type": "building",
+      "mapPosition": {
+        "x": 44,
+        "z": 16
+      },
+      "world": {
+        "rotation": 2.86
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_10_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande.obj",
+          "material": "/houses/Casa_grande.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_11",
+      "name": "Casa Nuova 11",
+      "type": "building",
+      "mapPosition": {
+        "x": -36,
+        "z": 50
+      },
+      "world": {
+        "rotation": 0.3
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_11_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola.obj",
+          "material": "/houses/Casa_piccola.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_12",
+      "name": "Casa Nuova 12",
+      "type": "building",
+      "mapPosition": {
+        "x": 24,
+        "z": 8
+      },
+      "world": {
+        "rotation": 5.86
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_12_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta.obj",
+          "material": "/houses/Casa_alta.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_13",
+      "name": "Casa Nuova 13",
+      "type": "building",
+      "mapPosition": {
+        "x": 24,
+        "z": -14
+      },
+      "world": {
+        "rotation": 5.95
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_13_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande2.obj",
+          "material": "/houses/Casa_grande2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_14",
+      "name": "Casa Nuova 14",
+      "type": "building",
+      "mapPosition": {
+        "x": 44,
+        "z": 36
+      },
+      "world": {
+        "rotation": 2.11
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_14_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola2.obj",
+          "material": "/houses/Casa_piccola2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_15",
+      "name": "Casa Nuova 15",
+      "type": "building",
+      "mapPosition": {
+        "x": -20,
+        "z": 38
+      },
+      "world": {
+        "rotation": 1.94
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_15_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta2.obj",
+          "material": "/houses/Casa_alta2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_16",
+      "name": "Casa Nuova 16",
+      "type": "building",
+      "mapPosition": {
+        "x": 38,
+        "z": 0
+      },
+      "world": {
+        "rotation": 4.82
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_16_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande4.obj",
+          "material": "/houses/Casa_grande4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_17",
+      "name": "Casa Nuova 17",
+      "type": "building",
+      "mapPosition": {
+        "x": -56,
+        "z": 56
+      },
+      "world": {
+        "rotation": 1.28
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_17_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola3.obj",
+          "material": "/houses/Casa_piccola3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_18",
+      "name": "Casa Nuova 18",
+      "type": "building",
+      "mapPosition": {
+        "x": -60,
+        "z": -6
+      },
+      "world": {
+        "rotation": 1.12
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_18_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta3.obj",
+          "material": "/houses/Casa_alta3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_19",
+      "name": "Casa Nuova 19",
+      "type": "building",
+      "mapPosition": {
+        "x": -56,
+        "z": 42
+      },
+      "world": {
+        "rotation": 1.18
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_19_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande3.obj",
+          "material": "/houses/Casa_grande3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_20",
+      "name": "Casa Nuova 20",
+      "type": "building",
+      "mapPosition": {
+        "x": -58,
+        "z": 10
+      },
+      "world": {
+        "rotation": 2.18
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_20_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola4.obj",
+          "material": "/houses/Casa_piccola4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_24",
+      "name": "Casa Nuova 24",
+      "type": "building",
+      "mapPosition": {
+        "x": -35,
+        "z": 96
+      },
+      "world": {
+        "rotation": 1.24
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_24_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande2.obj",
+          "material": "/houses/Casa_grande2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_26",
+      "name": "Casa Nuova 26",
+      "type": "building",
+      "mapPosition": {
+        "x": -45,
+        "z": 90
+      },
+      "world": {
+        "rotation": 6.09
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_26_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta2.obj",
+          "material": "/houses/Casa_alta2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_30",
+      "name": "Casa Nuova 30",
+      "type": "building",
+      "mapPosition": {
+        "x": -55,
+        "z": 84
+      },
+      "world": {
+        "rotation": 3.31
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_30_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande3.obj",
+          "material": "/houses/Casa_grande3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_31",
+      "name": "Casa Nuova 31",
+      "type": "building",
+      "mapPosition": {
+        "x": -37,
+        "z": 82
+      },
+      "world": {
+        "rotation": 1.27
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_31_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola4.obj",
+          "material": "/houses/Casa_piccola4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_35",
+      "name": "Casa Nuova 35",
+      "type": "building",
+      "mapPosition": {
+        "x": -37,
+        "z": 70
+      },
+      "world": {
+        "rotation": 3.28
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_35_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande2.obj",
+          "material": "/houses/Casa_grande2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_41",
+      "name": "Casa Nuova 41",
+      "type": "building",
+      "mapPosition": {
+        "x": 55,
+        "z": 48
+      },
+      "world": {
+        "rotation": 4.45
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_41_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande3.obj",
+          "material": "/houses/Casa_grande3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_42",
+      "name": "Casa Nuova 42",
+      "type": "building",
+      "mapPosition": {
+        "x": 65,
+        "z": 42
+      },
+      "world": {
+        "rotation": 0.23
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_42_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola4.obj",
+          "material": "/houses/Casa_piccola4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_43",
+      "name": "Casa Nuova 43",
+      "type": "building",
+      "mapPosition": {
+        "x": -30,
+        "z": -30
+      },
+      "world": {
+        "rotation": 5.02
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_43_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande2.obj",
+          "material": "/houses/Casa_grande2.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_44",
+      "name": "Casa Nuova 44",
+      "type": "building",
+      "mapPosition": {
+        "x": -16,
+        "z": -34
+      },
+      "world": {
+        "rotation": 2.05
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_44_main",
+          "type": "full_building",
+          "model": "/houses/Casa_alta.obj",
+          "material": "/houses/Casa_alta.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_45",
+      "name": "Casa Nuova 45",
+      "type": "building",
+      "mapPosition": {
+        "x": -30,
+        "z": -44
+      },
+      "world": {
+        "rotation": 1.51
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_45_main",
+          "type": "full_building",
+          "model": "/houses/Casa_piccola3.obj",
+          "material": "/houses/Casa_piccola3.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    },
+    {
+      "id": "casa_nuova_46",
+      "name": "Casa Nuova 46",
+      "type": "building",
+      "mapPosition": {
+        "x": -42,
+        "z": -36
+      },
+      "world": {
+        "rotation": 5.17
+      },
+      "brightness": 1,
+      "emissive": "#ffd7a8",
+      "emissiveIntensity": 0.05,
+      "modules": [
+        {
+          "id": "casa_nuova_46_main",
+          "type": "full_building",
+          "model": "/houses/Casa_grande4.obj",
+          "material": "/houses/Casa_grande4.mtl",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.01,
+            0.01,
+            0.01
+          ]
+        }
+      ]
+    }
+  ]
+}

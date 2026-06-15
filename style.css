@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+}
+
+#c {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+#status {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  color: white;
+  background: rgba(0,0,0,0.65);
+  padding: 8px 10px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  z-index: 10;
+}
