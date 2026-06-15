@@ -16,14 +16,14 @@ const GRASS_MODELS = [
   'game_ready_grass.glb',
   'realistic_grass_pack_for_games_free.glb',
 ];
-// flowering bushes, outermost ring (names/folders as in the project)
+// flowering bushes, outermost ring 
 const BUSH_MODELS = [
   './grass_and_flowers/pink_flower/phlox candystrip cluster glb.glb',
   './grass_and_flowers/red_flower/glb red flowering.glb',
 ];
 
 
-// tolerant GLB loading (null if missing). fullPath = full path.
+// tolerant GLB loading (null if missing). fullPath = full path
 function loadGLB(loader, fullPath) {
   return new Promise((resolve) => {
     loader.load(fullPath,
@@ -71,7 +71,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   let seed = 55221;
   const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
 
-  // ---- load rocks, grass (shore) and flowering bushes (outside) — tolerant ----
+  //load rocks, grass (shore) and flowering bushes (outside)
   const loader = new GLTFLoader();
   const rockScene  = await loadGLB(loader, ROCK_PATH + ROCK_MODEL);
   const grassScenes = await Promise.all(GRASS_MODELS.map(f => loadGLB(loader, GRASS_PATH + f)));
@@ -116,7 +116,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
 
   // Per-vertex attribute: normalized elliptical distance from the center
   // (0 = center, 1 = outer edge). Used in the shader to fade the alpha toward
-  // the edge, without relying on alphaMap/uv2 (more robust).
+  // the edge
   const edgeDist = new Float32Array(bp.count);
   for (let i = 0; i < bp.count; i++) {
     const vx = bp.getX(i), vz = bp.getZ(i);
@@ -182,7 +182,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
 
   // === WATER SURFACE (dense grid for smooth waves) ===
   // Use a subdivided plane and discard vertices outside the shore shape, so we
-  // have lots of interior vertices to animate (ShapeGeometry has too few).
+  // have lots of interior vertices to animate 
   const GRIDN = QUALITY.tier === 'high' ? 48 : (QUALITY.tier === 'medium' ? 32 : 24);
   const waterGeo = new THREE.PlaneGeometry(rx * 2.2, rz * 2.2, GRIDN, GRIDN);
   waterGeo.rotateX(-Math.PI / 2);
@@ -225,26 +225,25 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   wpos.needsUpdate = true;
 
   // Realistic water: deep green-blue color, crisp reflections, fresnel (lighter
-  // and more reflective at the edges) and slight transparency.
+  // and more reflective at the edges) and slight transparency
+  const useTransmission = QUALITY.tier === 'high';
   const waterMat = new THREE.MeshPhysicalMaterial({
     color: 0x2e6d78,           // lake green-blue
     roughness: 0.04,           // smoother surface -> sharper reflections
     metalness: 0.0,
-    transmission: 0.5,         // more light passes through -> sense of depth
+    transmission: useTransmission ? 0.5 : 0.0,
     thickness: 2.5,
     ior: 1.333,                // real refractive index of water
     transparent: true,
-    opacity: 0.9,
-    clearcoat: 1.0,            // glossy film = specular reflections
+    opacity: useTransmission ? 0.9 : 0.96,
+    clearcoat: useTransmission ? 1.0 : 0.4,
     clearcoatRoughness: 0.04,
     reflectivity: 0.6,
     envMapIntensity: 1.4,      // makes better use of the environment for reflections
     side: THREE.DoubleSide,
   });
 
-  // Fresnel + depth gradient: edges (shallow) lighter and more turquoise, center
-  // (deep) darker. Done via onBeforeCompile so we keep the MeshPhysicalMaterial
-  // PBR.
+ 
   const shallowColor = new THREE.Color(0x6fc5c8);
   const deepColor    = new THREE.Color(0x1c4f5e);
   waterMat.onBeforeCompile = (shader) => {

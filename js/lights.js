@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { QUALITY } from './qualitySettings.js';
 
 // ================== UNREAL-STYLE LIGHTING ==================
 export function setupLights(scene) {
@@ -17,17 +18,19 @@ export function setupLights(scene) {
   scene.add(dirLight);
   scene.add(dirLight.target);
 
-  dirLight.castShadow = true;
+  dirLight.castShadow = QUALITY.shadows;
 
-  dirLight.shadow.mapSize.set(2048, 2048);
+  const shadowRes = QUALITY.shadowMapSize || 2048;
+  const biasScale = 2048 / shadowRes;   // smaller map -> larger texel -> more bias
+  dirLight.shadow.mapSize.set(shadowRes, shadowRes);
   dirLight.shadow.camera.left   = -160;
   dirLight.shadow.camera.right  =  160;
   dirLight.shadow.camera.top    =  160;
   dirLight.shadow.camera.bottom = -160;
   dirLight.shadow.camera.near   =  1;
   dirLight.shadow.camera.far    =  400;
-  dirLight.shadow.bias       = -0.00015;
-  dirLight.shadow.normalBias =  0.04;
+  dirLight.shadow.bias       = -0.00015 * biasScale;
+  dirLight.shadow.normalBias =  0.04 * biasScale;
   dirLight.shadow.radius     =  1.5;   // crisp shadow edges
   dirLight.shadow.intensity  =  1.0;   // full shadows (three r150+)
 
