@@ -382,14 +382,30 @@ async function loadData() {
 }
 
 // ================== LOOP ==================
-function animate() {
+let frameCount = 0;
+let lastFrameTime = 0;
+
+function animate(now) {
   requestAnimationFrame(animate);
+
+  // frame rate cap: skip rendering if not enough time has passed.
+  // Reduces GPU load (and heat) on high-refresh monitors.
+  if (QUALITY.fpsCap > 0) {
+    const minDelta = 1000 / QUALITY.fpsCap;
+    if (now - lastFrameTime < minDelta) return;
+    lastFrameTime = now;
+  }
+  frameCount++;
 
   // dt BEFORE elapsed: getElapsedTime() internally calls getDelta(), so
   // calling both would distort the values. I only use getDelta() and accumulate t
   const dt = clock.getDelta();
   tempo += dt;
   const t = tempo;
+
+  // vegetation wind is only updated every N frames on weaker GPUs
+  const animateVeg = (frameCount % QUALITY.vegetationAnimEvery) === 0;
+
   for (const f of fioriere) {
     for (const fl of f.userData.flowers) {
       fl.mesh.rotation.x = fl.baseRotX + Math.sin(t * 2 + fl.phase) * 0.12;
@@ -401,14 +417,14 @@ function animate() {
   if (mulino) mulino.userData.blades.rotation.z += 0.01;
 
   // swaying of the wheat in the wind
-  if (campoGrano) campoGrano.userData.update(t);
+  if (campoGrano && animateVeg) campoGrano.userData.update(t);
 
   // swaying of the lavender in the wind
-  if (campoLavanda) campoLavanda.userData.update(t);
+  if (campoLavanda && animateVeg) campoLavanda.userData.update(t);
 
   // pumpkins (static) and red flowers in the wind
-  if (campoZucche) campoZucche.userData.update(t);
-  if (campoFioriRossi) campoFioriRossi.userData.update(t);
+  if (campoZucche && animateVeg) campoZucche.userData.update(t);
+  if (campoFioriRossi && animateVeg) campoFioriRossi.userData.update(t);
 
   // pond ripples and well bucket
   if (laghetto) laghetto.userData.update(t);
@@ -439,7 +455,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-animate();
+animate(0);
 // The scene construction no starts on its own: the menu starts it when
 // the user presses PLAY
 window.startGame = loadData;

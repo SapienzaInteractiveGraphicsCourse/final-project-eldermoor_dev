@@ -1,10 +1,6 @@
 // ================== QUALITY SETTINGS ==================
 // Auto-detects the GPU tier and exposes a single shared settings object that
 // the rest of the code reads to scale rendering, shadows and vegetation
-//
-// Three tiers: 'high' (RTX 4080/4090/5090 class & up), 'medium' (mid-range
-// discrete GPUs), 'low' (integrated graphics / old GPUs / mobile)
-
 
 export const QUALITY = {
   tier: 'high',          // 'high' | 'medium' | 'low'
@@ -16,15 +12,20 @@ export const QUALITY = {
   shadows: true,
   shadowMapSize: 2048,
   shadowType: 'pcfsoft', // 'pcfsoft' | 'pcf' | 'basic'
-  //  vegetation multipliers (1.0 = full, lower = fewer instances) 
+  // vegetation multipliers (1.0 = full, lower = fewer instances) 
   treeCount: 1.0,        // multiplies NUM_TREES and fillTreeArea density
   fieldDensity: 1.0,     // multiplies wheat/pumpkin/flower field counts
   scatterDensity: 1.0,   // multiplies grass/flower scatter
   // whether small instanced vegetation casts shadows
   vegetationShadows: true,
+  // frame rate cap (0 = uncapped). Limits GPU load on fast monitors.
+  fpsCap: 60,
+  // how often (in frames) the wind animation of fields updates.
+  // 1 = every frame, 2 = every other frame, etc. Higher = less GPU upload.
+  vegetationAnimEvery: 1,
 };
 
-// Reads the unmasked GPU renderer string via WEBGL_debug_renderer_info.
+// Reads the unmasked GPU renderer string via WEBGL_debug_renderer_info
 function getGPUString(renderer) {
   try {
     const gl = renderer ? renderer.getContext()
@@ -39,9 +40,7 @@ function getGPUString(renderer) {
   }
 }
 
-// Classifies the GPU string into a tier. Heuristic but deliberately
-// conservative: anything we can't confidently call "high" falls to medium,
-// and known weak/integrated parts fall to low
+// Classifies the GPU string into a tier
 function classify(gpu) {
   const g = gpu.toLowerCase();
 
@@ -76,7 +75,7 @@ function classify(gpu) {
   return 'medium';
 }
 
-// Applies a tier's parameters to the QUALITY singleton.
+// Applies a tier's parameters to the QUALITY singleton
 function applyTier(tier) {
   QUALITY.tier = tier;
   if (tier === 'high') {
@@ -89,6 +88,8 @@ function applyTier(tier) {
     QUALITY.fieldDensity = 1.0;
     QUALITY.scatterDensity = 1.0;
     QUALITY.vegetationShadows = true;
+    QUALITY.fpsCap = 60;
+    QUALITY.vegetationAnimEvery = 1;
   } else if (tier === 'medium') {
     QUALITY.pixelRatioCap = 1.5;
     QUALITY.antialias = true;
@@ -99,6 +100,8 @@ function applyTier(tier) {
     QUALITY.fieldDensity = 0.5;
     QUALITY.scatterDensity = 0.5;
     QUALITY.vegetationShadows = false;  // biggest single win on mid GPUs
+    QUALITY.fpsCap = 60;
+    QUALITY.vegetationAnimEvery = 2;
   } else { // low
     QUALITY.pixelRatioCap = 1;
     QUALITY.antialias = false;
@@ -109,10 +112,11 @@ function applyTier(tier) {
     QUALITY.fieldDensity = 0.3;
     QUALITY.scatterDensity = 0.25;
     QUALITY.vegetationShadows = false;
+    QUALITY.fpsCap = 30;
+    QUALITY.vegetationAnimEvery = 3;
   }
 }
 
-// Main entry point
 // Returns the resolved tier string
 export function detectQuality(renderer) {
   // allow a manual override via ?quality=low|medium|high in the URL
@@ -141,8 +145,7 @@ export function detectQuality(renderer) {
   return tier;
 }
 
-// Maps the shadowType string to the THREE.* constant. Pass THREE in to avoid
-// importing it here (keeps this module dependency-free)
+
 export function shadowMapTypeFor(THREE) {
   switch (QUALITY.shadowType) {
     case 'basic':   return THREE.BasicShadowMap;
