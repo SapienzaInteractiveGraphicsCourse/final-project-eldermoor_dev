@@ -67,7 +67,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 const perf = createPerfHUD(renderer, scene);
 // DEBUG: runtime toggles to find the bottleneck (keys T/L/K/J). Reads `laghetto`
 // lazily so it works even though the pond is created later during loadData.
-createPerfToggles(renderer, scene, () => ({ pond: laghetto }));
+createPerfToggles(renderer, scene, () => ({ pond: laghetto, scatter: scatterGroup }));
 
 // Procedural environment (no external HDRI files): gives the PBR materials
 // something to reflect. This is what makes the lake water's reflections
@@ -110,6 +110,7 @@ let npcManager = null;
 let questSystem = null;
 let dialogue = null;
 let erbe = null;
+let scatterGroup = null;
 let hud = null;
 let inventory = null;
 let sceneReady = false;   // true once loadData finishes; loop skips work until then
@@ -363,7 +364,7 @@ async function loadData() {
 
       // Grass and bushes denser on the grass of the NORTH-EAST quadrant
       // (windmill and lake area). Avoids roads, paving, walls and the areas below
-      await scatterVegetation(scene, {
+      scatterGroup = await scatterVegetation(scene, {
         grassSpacing: 4.5,   // denser
         flowerChance: 0.22,  // more bushes/flowers
         avoidRects: [
@@ -398,10 +399,12 @@ let lastFrameTime = 0;
 function animate(now) {
   requestAnimationFrame(animate);
 
-  // frame rate cap: skip rendering if not enough time has passed.
-  // Reduces GPU load (and heat) on high-refresh monitors.
+  // frame rate cap. NOTE: a naive "if (now - last < 1000/cap) return" beats
+  // against the monitor's vsync (a 60Hz frame often misses the threshold by a
+  // hair and gets skipped, collapsing the rate to ~44). We subtract a small
+  // tolerance (half a frame at 60Hz) so frames are never dropped by a hair.
   if (QUALITY.fpsCap > 0) {
-    const minDelta = 1000 / QUALITY.fpsCap;
+    const minDelta = 1000 / QUALITY.fpsCap - 4;   // ~4ms tolerance
     if (now - lastFrameTime < minDelta) return;
     lastFrameTime = now;
   }
