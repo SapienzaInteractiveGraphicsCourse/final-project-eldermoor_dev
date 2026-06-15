@@ -98,18 +98,17 @@ async function loadOBJWithMTL(objPath, mtlPath) {
 
         const newMats = mats.map((mat) => {
           const matName = (mat.name || '').toLowerCase();
-          console.log('material:', mat.name, '-> matName:', matName);
           const isGlass = matName.includes('glass') || matName.includes('window');
           if (isGlass) {
             mat.dispose();
-            return new THREE.MeshPhysicalMaterial({
+
+            // simple transparent glass 
+            return new THREE.MeshStandardMaterial({
               color: 0xaaddff,
               transparent: true,
-              opacity: 0.55,
-              roughness: 0.05,
+              opacity: 0.45,
+              roughness: 0.1,
               metalness: 0.0,
-              transmission: 0.5,
-              thickness: 0.5,
               side: THREE.DoubleSide,
             });
           }
@@ -188,7 +187,6 @@ export async function createBuildings(scene, buildings, setStatus) {
         object.position.set(...part.position);
         object.rotation.set(...part.rotation);
         object.scale.set(...part.scale);
-        console.log('scale applied:', part.scale, '-> object.scale:', object.scale);
 
         // optional per-building brightness / emissive overrides
         const brightness = building.brightness || 1.0;
