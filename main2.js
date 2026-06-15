@@ -63,7 +63,7 @@ renderer.toneMappingExposure = QUALITY.toneMappingExposure;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 // Performance overlay (toggle with the 'P' key): FPS, draw calls, triangles.
-const perf = createPerfHUD(renderer);
+const perf = createPerfHUD(renderer, scene);
 
 // Procedural environment (no external HDRI files): gives the PBR materials
 // something to reflect. This is what makes the lake water's reflections
