@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { getTerrainHeight } from './terrainHeight.js';
+import { QUALITY } from './qualitySettings.js';
 
 // ================== WHITEWASHED BRICK TEXTURES ==================
 const textureLoader = new THREE.TextureLoader();
@@ -261,7 +262,10 @@ export function createFountain(scene, cx, cz) {
   }
  
   // === ANIMATION ===
+  let _fountainFrame = 0;
   fountain.userData.update = function (time) {
+    _fountainFrame++;
+    if ((_fountainFrame % QUALITY.vegetationAnimEvery) !== 0) return;
     // jet droplets: parabolic up/down cycle
     for (const jp of jetParticles) {
       let t = (time * jp.speed + jp.phase) % 1;   // 0..1

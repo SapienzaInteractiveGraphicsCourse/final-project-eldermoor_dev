@@ -1,15 +1,14 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { getTerrainHeight } from './terrainHeight.js';
+import { QUALITY } from './qualitySettings.js';
 
 // ================== POND ==================
-// The water ripples: animate with  pond.userData.update(time)
-
 
 const textureLoader = new THREE.TextureLoader();
 const TEX_PATH = './soil_textures/';
 const ROCK_PATH = './trees_and_rocks/';   // rocks
-const GRASS_PATH = './grass_and_flowers/'; // grass 
+const GRASS_PATH = './grass_and_flowers/'; // grass (on the shore)
 
 const ROCK_MODEL = 'rock_small_01.glb';
 // grass near the shore
@@ -17,14 +16,14 @@ const GRASS_MODELS = [
   'game_ready_grass.glb',
   'realistic_grass_pack_for_games_free.glb',
 ];
-// flowering bushes
+// flowering bushes, outermost ring (names/folders as in the project)
 const BUSH_MODELS = [
   './grass_and_flowers/pink_flower/phlox candystrip cluster glb.glb',
   './grass_and_flowers/red_flower/glb red flowering.glb',
 ];
 
 
-// tolerant GLB loading 
+// tolerant GLB loading (null if missing). fullPath = full path.
 function loadGLB(loader, fullPath) {
   return new Promise((resolve) => {
     loader.load(fullPath,
@@ -35,7 +34,7 @@ function loadGLB(loader, fullPath) {
   });
 }
 
-// try several candidate paths: returns the first that loads (or null)
+// try several candidate paths: returns the first that loads (or null).
 async function loadGLBFirst(loader, candidates) {
   for (const path of candidates) {
     const scene = await new Promise((resolve) => {
@@ -72,7 +71,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   let seed = 55221;
   const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
 
-  //load rocks, grass (shore) and flowering bushes
+  // ---- load rocks, grass (shore) and flowering bushes (outside) — tolerant ----
   const loader = new GLTFLoader();
   const rockScene  = await loadGLB(loader, ROCK_PATH + ROCK_MODEL);
   const grassScenes = await Promise.all(GRASS_MODELS.map(f => loadGLB(loader, GRASS_PATH + f)));
@@ -117,7 +116,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
 
   // Per-vertex attribute: normalized elliptical distance from the center
   // (0 = center, 1 = outer edge). Used in the shader to fade the alpha toward
-  // the edge, without relying on alphaMap/uv2 
+  // the edge, without relying on alphaMap/uv2 (more robust).
   const edgeDist = new Float32Array(bp.count);
   for (let i = 0; i < bp.count; i++) {
     const vx = bp.getX(i), vz = bp.getZ(i);
@@ -145,7 +144,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   });
 
   // Shader fade: alpha stays full up to FADE_START then goes to 0 toward the
-  // edge, so the soil dissolves gradually into the grass
+  // edge, so the soil dissolves gradually into the grass.
   bedMat.onBeforeCompile = (shader) => {
     shader.vertexShader = shader.vertexShader
       .replace('#include <common>', '#include <common>\nattribute float aEdge;\nvarying float vEdge;')
@@ -162,7 +161,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   bed.renderOrder = 0;
   group.add(bed);
 
-  // === RING OF ROCKS around the shore ===
+  // === RING OF ROCKS (rock_small_01.glb) around the shore ===
   if (rockPrefab) {
     const numStones = Math.floor(SEGS * 0.7);
     for (let i = 0; i < numStones; i++) {
@@ -183,8 +182,8 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
 
   // === WATER SURFACE (dense grid for smooth waves) ===
   // Use a subdivided plane and discard vertices outside the shore shape, so we
-  // have lots of interior vertices to animate 
-  const GRIDN = 48;
+  // have lots of interior vertices to animate (ShapeGeometry has too few).
+  const GRIDN = QUALITY.tier === 'high' ? 48 : (QUALITY.tier === 'medium' ? 32 : 24);
   const waterGeo = new THREE.PlaneGeometry(rx * 2.2, rz * 2.2, GRIDN, GRIDN);
   waterGeo.rotateX(-Math.PI / 2);
   const wpos = waterGeo.attributes.position;
@@ -226,7 +225,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   wpos.needsUpdate = true;
 
   // Realistic water: deep green-blue color, crisp reflections, fresnel (lighter
-  // and more reflective at the edges) and slight transparency
+  // and more reflective at the edges) and slight transparency.
   const waterMat = new THREE.MeshPhysicalMaterial({
     color: 0x2e6d78,           // lake green-blue
     roughness: 0.04,           // smoother surface -> sharper reflections
@@ -244,7 +243,8 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   });
 
   // Fresnel + depth gradient: edges (shallow) lighter and more turquoise, center
-  // (deep) darker
+  // (deep) darker. Done via onBeforeCompile so we keep the MeshPhysicalMaterial
+  // PBR.
   const shallowColor = new THREE.Color(0x6fc5c8);
   const deepColor    = new THREE.Color(0x1c4f5e);
   waterMat.onBeforeCompile = (shader) => {
@@ -268,7 +268,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   // array for the sway animation (filled by grass and bushes)
   const grasses = [];
 
-  // === GRASS around the lake ===
+  // === GRASS around the lake (near the shore) ===
   if (grassPrefabs.length > 0) {
     const numGrass = 26;
     for (let i = 0; i < numGrass; i++) {
@@ -288,7 +288,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
     }
   }
 
-  // === FLOWERING BUSHES in a ring ===
+  // === FLOWERING BUSHES in an OUTER ring ===
   if (bushPrefabs.length > 0) {
     const numBush = 14;
     for (let i = 0; i < numBush; i++) {
@@ -309,11 +309,18 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   }
 
   // === ANIMATION: waves + swaying grass ===
+  // The wave update (and especially computeVertexNormals) is the heaviest part,
+  // so on weaker GPUs we run it only every N frames. We keep a private frame
+  // counter so the loop signature stays unchanged.
+  let _pondFrame = 0;
   group.userData.update = function (time) {
+    _pondFrame++;
+    if ((_pondFrame % QUALITY.vegetationAnimEvery) !== 0) return;
+
     for (let i = 0; i < wpos.count; i++) {
       const x = wpos.getX(i), z = wpos.getZ(i);
       // Superpose several wave trains with different directions, wavelengths and
-      // speeds -> a less regular, more natural surface
+      // speeds -> a less regular, more natural surface.
       const w1 = Math.sin(time * 1.1 + x * 0.45 + z * 0.20) * 0.10;
       const w2 = Math.cos(time * 0.8 + z * 0.55 - x * 0.18) * 0.07;
       const w3 = Math.sin(time * 1.7 + x * 0.85 - z * 0.65) * 0.045;

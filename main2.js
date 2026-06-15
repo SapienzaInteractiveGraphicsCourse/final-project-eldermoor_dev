@@ -104,6 +104,7 @@ let dialogue = null;
 let erbe = null;
 let hud = null;
 let inventory = null;
+let sceneReady = false;   // true once loadData finishes; loop skips work until then
 
 // ================== UTILS ==================
 async function loadJSON(url) {
@@ -371,6 +372,7 @@ async function loadData() {
     setStatus('Scene ready');
     statusEl.style.display = 'none';
     setProgress(1.0, 'Ready');
+    sceneReady = true;
     // signals to the menu/loading that the scene is fully loaded
     if (typeof window.onSceneReady === 'function') window.onSceneReady();
 
@@ -396,6 +398,10 @@ function animate(now) {
     lastFrameTime = now;
   }
   frameCount++;
+
+  // Until the scene has finished loading there is nothing to animate or draw:
+  // skip the whole frame to keep the GPU idle in the menu.
+  if (!sceneReady) return;
 
   // dt BEFORE elapsed: getElapsedTime() internally calls getDelta(), so
   // calling both would distort the values. I only use getDelta() and accumulate t
