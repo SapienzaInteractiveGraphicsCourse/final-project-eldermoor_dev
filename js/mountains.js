@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { QUALITY } from './qualitySettings.js';
 import { getTerrainHeight } from './terrainHeight.js';
 
 // ================== PROCEDURAL MOUNTAIN ARC ==================
@@ -125,7 +126,7 @@ export async function createMountains(scene) {
   [colorMap, normalMap, roughnessMap].forEach(tex => {
     tex.wrapS = THREE.RepeatWrapping;
     tex.wrapT = THREE.RepeatWrapping;
-    tex.anisotropy = 8;       // sharper at grazing angles
+    tex.anisotropy = QUALITY.anisotropy;       // sharper at grazing angles
   });
   // BaseColor is a color map -> sRGB; the others stay linear
   colorMap.colorSpace = THREE.SRGBColorSpace;

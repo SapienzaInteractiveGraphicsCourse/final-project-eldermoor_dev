@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { QUALITY } from './qualitySettings.js';
 import { getTerrainHeight, HILL_H } from './terrainHeight.js';
 import { isOnRoad } from './roads.js';
 
@@ -31,7 +32,7 @@ export async function createGround(scene) {
   [colorMap, normalMap, roughnessMap].forEach(tex => {
     tex.wrapS = THREE.RepeatWrapping;
     tex.wrapT = THREE.RepeatWrapping;
-    tex.anisotropy = 8;
+    tex.anisotropy = QUALITY.anisotropy;
   });
   colorMap.colorSpace = THREE.SRGBColorSpace;
 

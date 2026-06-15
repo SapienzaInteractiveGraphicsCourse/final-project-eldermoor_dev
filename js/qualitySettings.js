@@ -1,10 +1,9 @@
 // ================== QUALITY SETTINGS ==================
 // Auto-detects the GPU tier and exposes a single shared settings object that
 // the rest of the code reads to scale rendering, shadows and vegetation
-
 export const QUALITY = {
   tier: 'high',          // 'high' | 'medium' | 'low'
-  // renderer 
+  // renderer
   pixelRatioCap: 2,      // Math.min(devicePixelRatio, cap)
   antialias: true,
   toneMappingExposure: 0.85,
@@ -23,9 +22,12 @@ export const QUALITY = {
   // how often (in frames) the wind animation of fields updates.
   // 1 = every frame, 2 = every other frame, etc. Higher = less GPU upload.
   vegetationAnimEvery: 1,
+  // anisotropic filtering level for textures. High = sharp at grazing angles
+  // but costly per-pixel. Lower on weak GPUs for a near-invisible saving.
+  anisotropy: 8,
 };
 
-// Reads the unmasked GPU renderer string via WEBGL_debug_renderer_info
+// Reads the unmasked GPU renderer string via WEBGL_debug_renderer_info.
 function getGPUString(renderer) {
   try {
     const gl = renderer ? renderer.getContext()
@@ -90,6 +92,7 @@ function applyTier(tier) {
     QUALITY.vegetationShadows = true;
     QUALITY.fpsCap = 60;
     QUALITY.vegetationAnimEvery = 1;
+    QUALITY.anisotropy = 8;
   } else if (tier === 'medium') {
     QUALITY.pixelRatioCap = 1.5;
     QUALITY.antialias = true;
@@ -102,6 +105,7 @@ function applyTier(tier) {
     QUALITY.vegetationShadows = false;  // biggest single win on mid GPUs
     QUALITY.fpsCap = 60;
     QUALITY.vegetationAnimEvery = 2;
+    QUALITY.anisotropy = 4;
   } else { // low
     QUALITY.pixelRatioCap = 1;
     QUALITY.antialias = false;
@@ -114,10 +118,11 @@ function applyTier(tier) {
     QUALITY.vegetationShadows = false;
     QUALITY.fpsCap = 30;
     QUALITY.vegetationAnimEvery = 3;
+    QUALITY.anisotropy = 1;
   }
 }
 
-// Returns the resolved tier string
+
 export function detectQuality(renderer) {
   // allow a manual override via ?quality=low|medium|high in the URL
   try {

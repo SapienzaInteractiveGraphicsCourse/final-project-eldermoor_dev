@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { QUALITY } from './qualitySettings.js';
 import { getTerrainHeight } from './terrainHeight.js';
 import { brickBaseColor, brickRoughness, brickNormal } from './textures.js';
 
@@ -11,7 +12,7 @@ const grassRoughness = _texLoader.load(GRASS_TEX_PATH + 'Roughness.png');
 const grassNormal    = _texLoader.load(GRASS_TEX_PATH + 'Normal.png');
 for (const t of [grassBaseColor, grassRoughness, grassNormal]) {
   t.wrapS = t.wrapT = THREE.RepeatWrapping;
-  t.anisotropy = 8;
+  t.anisotropy = QUALITY.anisotropy;
   t.repeat.set(2, 2);
 }
 grassBaseColor.colorSpace = THREE.SRGBColorSpace;

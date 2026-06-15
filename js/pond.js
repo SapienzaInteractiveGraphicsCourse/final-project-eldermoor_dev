@@ -130,7 +130,7 @@ export async function createPond(scene, cx, cz, rx = 12, rz = 9) {
   const soilRough = textureLoader.load(TEX_PATH + 'Forest_Path_ugsnfawlw_2K_Roughness.jpg');
   for (const t of [soilDiff, soilNorm, soilRough]) {
     t.wrapS = t.wrapT = THREE.RepeatWrapping;
-    t.anisotropy = 8;
+    t.anisotropy = QUALITY.anisotropy;
   }
   soilDiff.colorSpace = THREE.SRGBColorSpace;
 

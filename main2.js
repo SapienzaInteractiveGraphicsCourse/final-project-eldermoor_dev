@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 import { detectQuality, QUALITY, shadowMapTypeFor } from './js/qualitySettings.js';
+import { createPerfHUD } from './js/perfHud.js';
 import { setupLights }      from './js/lights.js';
 import { createLampPosts }  from './js/lampPosts.js';
 import { createGround }     from './js/ground.js';
@@ -60,6 +61,9 @@ renderer.shadowMap.type = shadowMapTypeFor(THREE);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = QUALITY.toneMappingExposure;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+// Performance overlay (toggle with the 'P' key): FPS, draw calls, triangles.
+const perf = createPerfHUD(renderer);
 
 // Procedural environment (no external HDRI files): gives the PBR materials
 // something to reflect. This is what makes the lake water's reflections
@@ -459,6 +463,7 @@ function animate(now) {
   if (inventory) inventory.update();
 
   renderer.render(scene, camera);
+  perf.update();
 }
 
 animate(0);

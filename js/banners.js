@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { QUALITY } from './qualitySettings.js';
 import { getTerrainHeight } from './terrainHeight.js';
 
 // ================== BANNERS ==================
@@ -81,7 +82,7 @@ function makeBannerTexture() {
 
   const tex = new THREE.CanvasTexture(cv);
   tex.colorSpace = THREE.SRGBColorSpace;
-  tex.anisotropy = 8;
+  tex.anisotropy = QUALITY.anisotropy;
   tex.needsUpdate = true;
   return tex;
 }

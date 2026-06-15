@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { QUALITY } from './qualitySettings.js';
 
 // ================== SOIL TEXTURE CACHE ==================
 // The four fields (wheat, lavender, pumpkins, red flowers) all use the SAME
@@ -16,7 +17,7 @@ function loadBase() {
   const rough = loader.load(TEX_PATH + 'Forest_Path_ugsnfawlw_2K_Roughness.jpg');
   for (const t of [diff, norm, rough]) {
     t.wrapS = t.wrapT = THREE.RepeatWrapping;
-    t.anisotropy = 8;
+    t.anisotropy = QUALITY.anisotropy;
   }
   diff.colorSpace = THREE.SRGBColorSpace;
   _base = { diff, norm, rough };
