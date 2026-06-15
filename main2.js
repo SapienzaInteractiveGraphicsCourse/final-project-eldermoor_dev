@@ -4,6 +4,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 import { detectQuality, QUALITY, shadowMapTypeFor } from './js/qualitySettings.js';
 import { createPerfHUD } from './js/perfHud.js';
+import { createPerfToggles } from './js/perfToggle.js';
 import { setupLights }      from './js/lights.js';
 import { createLampPosts }  from './js/lampPosts.js';
 import { createGround }     from './js/ground.js';
@@ -64,6 +65,9 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 // Performance overlay (toggle with the 'P' key): FPS, draw calls, triangles.
 const perf = createPerfHUD(renderer, scene);
+// DEBUG: runtime toggles to find the bottleneck (keys T/L/K/J). Reads `laghetto`
+// lazily so it works even though the pond is created later during loadData.
+createPerfToggles(renderer, scene, () => ({ pond: laghetto }));
 
 // Procedural environment (no external HDRI files): gives the PBR materials
 // something to reflect. This is what makes the lake water's reflections
