@@ -3,6 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { getTerrainHeight } from './terrainHeight.js';
 import { isOnRoad } from './roads.js';
 import { buildInstancedFromPrefabs } from './instanceUtils.js';
+import { QUALITY } from './qualitySettings.js';
 
 // ================== GRASS + FLOWER SCATTER ==================
 // Scatters tufts of game_ready_grass.glb and, more sparsely, the red/pink
@@ -41,7 +42,7 @@ function loadGLB(loader, fullPath) {
 
 // Normalizes a model to a target height, centered and resting on the ground
 function makePrefab(scene, targetH) {
-  scene.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  scene.traverse(o => { if (o.isMesh) { o.castShadow = QUALITY.vegetationShadows; o.receiveShadow = true; } });
   const box = new THREE.Box3().setFromObject(scene);
   const size = box.getSize(new THREE.Vector3());
   if (size.y < 0.001) return null;
@@ -118,6 +119,8 @@ export async function scatterVegetation(scene, options = {}) {
     avoidRects   = [],
   } = options;
 
+  const grassSpacingQ = grassSpacing / Math.sqrt(QUALITY.scatterDensity);
+
   const loader = new GLTFLoader();
   const grassScenes  = await Promise.all(GRASS_MODELS.map(f => loadGLB(loader, GRASS_PATH + f)));
   const flowerScenes = await Promise.all(FLOWER_MODELS.map(p => loadGLB(loader, p)));
@@ -141,8 +144,8 @@ export async function scatterVegetation(scene, options = {}) {
 
   const placements = [];
   let count = 0;
-  for (let gx = minX; gx <= maxX; gx += grassSpacing) {
-    for (let gz = minZ; gz <= maxZ; gz += grassSpacing) {
+  for (let gx = minX; gx <= maxX; gx += grassSpacingQ) {
+    for (let gz = minZ; gz <= maxZ; gz += grassSpacingQ) {
       const x = gx + (rand() - 0.5) * grassJitter * 2;
       const z = gz + (rand() - 0.5) * grassJitter * 2;
       if (!isFree(x, z, avoidRects)) continue;

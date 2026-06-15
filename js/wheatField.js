@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { getTerrainHeight } from './terrainHeight.js';
 import { getSoilTextures } from './soilTextures.js';
+import { QUALITY } from './qualitySettings.js';
 
 // ================== WHEAT FIELD ==================
 // Soil with a earth texture 
@@ -131,7 +132,7 @@ export function createWheatField(scene, cx, cz, width = 40, depth = 40, rotation
   const aristaGeoMerged = mergeByMat('arista');
 
   // === QUANTITY ===
-  const density = 7.0;
+  const density = 7.0 * QUALITY.fieldDensity;
   const count = Math.floor(width * depth * density / 4);
 
   const stalks  = new THREE.InstancedMesh(stalkGeoMerged, stalkMat, count);
@@ -141,9 +142,9 @@ export function createWheatField(scene, cx, cz, width = 40, depth = 40, rotation
   );
   const grainCounters = new Array(grainMats.length).fill(0);
 
-  stalks.castShadow = true;
-  aristas.castShadow = true;
-  grainMeshes.forEach(gm => { gm.castShadow = true; });
+  stalks.castShadow = QUALITY.vegetationShadows;
+  aristas.castShadow = QUALITY.vegetationShadows;
+  grainMeshes.forEach(gm => { gm.castShadow = QUALITY.vegetationShadows; });
 
   const baseMatrices = [];
   const phases = [];

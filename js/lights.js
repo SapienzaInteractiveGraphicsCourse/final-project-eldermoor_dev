@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { QUALITY } from './qualitySettings.js';
 
 // ================== UNREAL-STYLE LIGHTING ==================
 export function setupLights(scene) {
@@ -17,9 +18,9 @@ export function setupLights(scene) {
   scene.add(dirLight);
   scene.add(dirLight.target);
 
-  dirLight.castShadow = true;
+  dirLight.castShadow = QUALITY.shadows;
 
-  dirLight.shadow.mapSize.set(2048, 2048);
+  dirLight.shadow.mapSize.set(QUALITY.shadowMapSize, QUALITY.shadowMapSize);
   dirLight.shadow.camera.left   = -160;
   dirLight.shadow.camera.right  =  160;
   dirLight.shadow.camera.top    =  160;

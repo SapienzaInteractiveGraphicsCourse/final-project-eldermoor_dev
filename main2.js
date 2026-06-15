@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
+import { detectQuality, QUALITY, shadowMapTypeFor } from './js/qualitySettings.js';
 import { setupLights }      from './js/lights.js';
 import { createLampPosts }  from './js/lampPosts.js';
 import { createGround }     from './js/ground.js';
@@ -9,7 +10,6 @@ import { createCityWalls }  from './js/walls.js';
 import { createBuildings }  from './js/buildings.js';
 import { createRoads }      from './js/roads.js';
 import { createMountains } from './js/mountains.js';
-import { createTrees } from './js/trees.js';
 import { createFioriera }   from './js/fioriera.js';
 import { createWindmill }   from './js/windmill.js';
 import { createWheatField } from './js/wheatField.js';
@@ -48,14 +48,17 @@ scene.background = new THREE.Color(0xa0c4ff);
 const camera   = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
 camera.position.set(0, 80, 120);
 
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+detectQuality(null);
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: QUALITY.antialias });
+detectQuality(renderer);
 renderer.setSize(innerWidth, innerHeight);
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.setPixelRatio(Math.min(devicePixelRatio, QUALITY.pixelRatioCap));
+renderer.shadowMap.enabled = QUALITY.shadows;
+renderer.shadowMap.type = shadowMapTypeFor(THREE);
 
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 0.85;
+renderer.toneMappingExposure = QUALITY.toneMappingExposure;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 // Procedural environment (no external HDRI files): gives the PBR materials
@@ -124,7 +127,6 @@ async function loadData() {
 
     createCityWalls(scene);
     setProgress(0.22, 'Raising the walls');
-    await createTrees(scene);
     setProgress(0.38, 'Planting the forest');
     await createBuildings(scene, buildingsData.buildings, setStatus);
     setProgress(0.58, 'Building the village');
