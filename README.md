@@ -34,7 +34,7 @@
 
 ## Libraries
 * [Three.js](https://threejs.org/) `r160` (loaded via CDN with an import map)
-* Three.js addons: `OrbitControls`, `GLTFLoader`, `OBJLoader`, `MTLLoader`, `RoomEnvironment`
+* Three.js addons: `GLTFLoader`, `OBJLoader`, `MTLLoader`, `RoomEnvironment`
 * [Cinzel](https://fonts.google.com/specimen/Cinzel) / Cinzel Decorative (Google Fonts) for the medieval UI typography
 
 
